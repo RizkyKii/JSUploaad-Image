@@ -1,11 +1,12 @@
 const express = require('express');
 const app = express();
-const News = require('./news/news')
+const newsRouter = require('./routers/news')
 
 app.use(express.static('public'));
+app.use(express.static('data/uploads'));
+app.use('/api', newsRouter) ;
 
-const news = new News();
-news.cteate({ title: 'some title', content: 'some content' });
+
 app.listen(3000, () => {
     console.log('Port is listing.');
 });

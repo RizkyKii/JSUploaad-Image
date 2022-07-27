@@ -1,1 +1,15 @@
-[{"title":"some title","content":"some content"}]
+[
+  {
+    "title": "kii",
+    "content": "cuk",
+    "category": "tech",
+    "id": "1658908748995"
+  },
+  {
+    "title": "kii",
+    "content": "kii",
+    "category": "tech",
+    "id": "1658909453399",
+    "thumbnail": "http://localhost:3000/1658909453399-Capture.PNG"
+  }
+]

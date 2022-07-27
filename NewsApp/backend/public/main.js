@@ -1,4 +1,4 @@
-const select = (selector) => document.querySelector(selector)
+const select = (selector) => document.querySelector(selector);
 
 const form = select('.form');
 const message = select('.message');
@@ -18,7 +18,7 @@ const validateForm = () => {
     const thumbnail = select('#thumbnail').value;
     const category = select('#category').value;
 
-    const exceptedImageFiles = ['jpg', 'jpeg', 'png']
+    const exceptedImageFiles = ['jpg', 'jpeg', 'png'];
 
     if(!title || !content || !thumbnail || category == '0'){
        return displayMessage('Field cannot be empty', 'red');
@@ -32,14 +32,21 @@ const validateForm = () => {
     return true;
 }
 
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', async (e) => {
     e.preventDefault();
    
     // Validate our form
    const valid = validateForm();
 
    if(valid){
-    
+    const formData = new FormData(form);
+    await postData(formData);
    }
-})
- 
+});
+
+const postData = async (data) => {
+  await fetch('/api/create', {
+     method: 'POST',
+     body: data, 
+    });
+};
